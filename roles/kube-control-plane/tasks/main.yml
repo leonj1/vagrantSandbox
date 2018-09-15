@@ -37,3 +37,15 @@
     - kube-controller-manager
     - kube-scheduler
 
+- name: Generate encryption key
+  command: bash -c "head -c 32 /dev/urandom | base64"
+  register: encryption_key
+
+- name: Copy encryption config
+  template:
+    src: encryption-config.yml
+    dest: /root/encryption-config.yml
+    mode: 0644
+  become: Yes
+
+
