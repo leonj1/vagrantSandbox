@@ -7,5 +7,6 @@
     doc_port: 3000
   roles:
     - init
+    - install_docker
     - kube-control-plane
 

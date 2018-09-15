@@ -1,0 +1,59 @@
+---
+
+- name: Get uname -r
+  command: uname -r
+  register: uname
+
+- name: Install aufs storage drivers
+  become: Yes 
+  apt: name=linux-image-extra-{{ uname.stdout }}
+
+- name: Install aufs storage drivers
+  become: Yes 
+  apt: name=linux-image-extra-virtual
+
+- name: apt-get upgrade
+  become: Yes 
+  apt:
+    upgrade: yes 
+    force_apt_get: yes 
+
+- name: Allow us to fetch apt repo over https
+  become: Yes 
+  apt: name={{ item }}
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+
+- name: Get Dockers official GPG key
+  command: bash -c "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -"
+  register: docker_gpg_key
+
+- name: Show current fingerprint
+  become: Yes
+  command: bash -c "apt-key fingerprint 0EBFCD88"
+  register: current_finger_print
+
+- debug: var=current_finger_print.stdout
+
+- name: Get lsb_release -cs
+  become: Yes
+  command: lsb_release -cs
+  register: lsb_release
+
+- debug: var=lsb_release.stdout
+
+- name: Setup stable Docker repository
+  become: Yes
+  command: bash -c "add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable'"
+
+- name: apt-get update
+  become: Yes 
+  command: bash -c 'apt-get update'
+
+- name: Install Docker
+  become: Yes 
+  apt: name=docker-ce
+
