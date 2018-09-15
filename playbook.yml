@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  vars:
+    web_server: nginx
+    sys_packages: [ 'git', 'curl', 'vim' ]
+  tasks:
+    - name: Install {{ web_server }}
+      become: Yes
+      apt: name={{ web_server }}
+    - name: Install Packages
+      become: Yes
+      apt: name={{ item }}
+      with_items: "{{ sys_packages }}"
+
