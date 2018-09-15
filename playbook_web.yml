@@ -6,6 +6,5 @@
     sys_packages: [ 'git', 'curl', 'vim' ]
     doc_port: 3000
   roles:
-    - init
     - nginx
 
