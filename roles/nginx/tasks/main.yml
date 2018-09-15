@@ -1,0 +1,9 @@
+---
+
+- name: Install {{ web_server }}
+  become: Yes
+  apt: name={{ web_server }}
+- name: Install templates
+  become: Yes
+  template: src=foo.tpl dest=/tmp/foo.tpl
+   

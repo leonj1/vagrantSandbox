@@ -1,0 +1,13 @@
+---
+
+- name: apt-get upgrade
+  become: Yes
+  apt:
+    upgrade: yes
+    force_apt_get: yes
+
+- name: Install packages
+  become: Yes
+  apt: name={{ item }}
+  with_items: "{{ sys_packages }}"
+
