@@ -1,0 +1,8 @@
+---
+
+- name: Copy certificates to worker
+  copy:
+    src: worker-0.pem
+    dest: /root/worker-0.pem
+  become: Yes
+

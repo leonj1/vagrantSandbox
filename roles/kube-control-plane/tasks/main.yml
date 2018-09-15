@@ -1,0 +1,8 @@
+---
+
+- name: Copy Certificates to kube control plane
+  copy:
+    src: admin.pem
+    dest: /root/admin.pem
+  become: Yes
+
