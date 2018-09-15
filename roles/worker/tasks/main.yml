@@ -1,8 +1,22 @@
 ---
 
-- name: Copy certificates to worker
+- debug: var=inventory_hostname
+
+- name: Copy CA to worker
   copy:
-    src: worker-0.pem
-    dest: /root/worker-0.pem
+    src: ca{{ item }}.pem
+    dest: /root/ca{{ item }}.pem
   become: Yes
+  with_items:
+    - "-key"
+    - ""
+
+- name: Copy worker specific certificate
+  copy:
+    src: "{{ inventory_hostname }}{{ item }}.pem"
+    dest: /root/{{ inventory_hostname}}{{ item }}.pem
+  become: Yes
+  with_items:
+    - "-key"
+    - ""
 

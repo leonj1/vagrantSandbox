@@ -7,6 +7,5 @@
     doc_port: 3000
   roles:
     - init
-    - worker
     - kube-control-plane
 

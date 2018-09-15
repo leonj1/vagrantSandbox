@@ -1,8 +1,29 @@
 ---
 
-- name: Copy Certificates to kube control plane
+- name: Copy CA
   copy:
-    src: admin.pem
-    dest: /root/admin.pem
+    src: ca{{ item }}.pem
+    dest: /root/ca{{ item }}.pem
   become: Yes
+  with_items:
+    - "-key"
+    - ""
+
+- name: Copy kubernetes certificate
+  copy:
+    src: kubernetes{{ item }}.pem
+    dest: /root/kubernetes{{ item }}.pem
+  become: Yes
+  with_items:
+    - "-key"
+    - ""
+
+- name: Copy service-account certificate
+  copy:
+    src: service-account{{ item }}.pem
+    dest: /root/service-account{{ item }}.pem
+  become: Yes
+  with_items:
+    - "-key"
+    - ""
 
