@@ -27,3 +27,13 @@
     - "-key"
     - ""
 
+- name: Copy kubeconfigs
+  copy:
+    src: "{{ item }}.kubeconfig"
+    dest: /root/{{ item }}.kubeconfig
+  become: Yes
+  with_items:
+    - admin
+    - kube-controller-manager
+    - kube-scheduler
+
