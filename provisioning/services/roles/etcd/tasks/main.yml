@@ -1,0 +1,17 @@
+---
+
+# Using the magic ip address for a vagrant node to connect to the host: 10.0.2.2
+- name: Download etcd
+  command: bash -c "curl -L  http://10.0.2.2:8080/etcd-v2.1.0-rc.0-linux-amd64.tar.gz -o /root/etcd-v2.1.0-rc.0-linux-amd64.tar.gz"
+  become: Yes
+
+- name: Untar etcd
+  shell: tar xzvf /root/etcd-v2.1.0-rc.0-linux-amd64.tar.gz
+  become: Yes
+
+- name: Start etcd in standalone mode
+  become: Yes
+  shell: ./etcd --listen-client-urls=http://0.0.0.0:2379 --advertise-client-urls=http://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:2379 >/root/etcd.log 2>&1 &
+  args:
+    chdir: /home/vagrant/etcd-v2.1.0-rc.0-linux-amd64
+

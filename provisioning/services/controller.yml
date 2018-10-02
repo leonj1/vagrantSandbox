@@ -1,0 +1,10 @@
+---
+
+- hosts: controller-0
+  vars:
+    web_server: nginx
+    sys_packages: [ 'git', 'curl', 'vim' ]
+    doc_port: 3000
+  roles:
+    - etcd
+
