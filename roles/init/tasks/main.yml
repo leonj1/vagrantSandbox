@@ -1,6 +1,6 @@
 ---
 
-- name: apt-get upgrade
+- name: apt-get update
   become: Yes
   apt:
     upgrade: yes

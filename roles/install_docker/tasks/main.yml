@@ -4,9 +4,9 @@
   command: uname -r
   register: uname
 
-- name: Install aufs storage drivers
-  become: Yes 
-  apt: name=linux-image-extra-{{ uname.stdout }}
+#- name: Install aufs storage drivers
+#  become: Yes 
+#  apt: name=linux-image-extra-{{ uname.stdout }}
 
 - name: Install aufs storage drivers
   become: Yes 
