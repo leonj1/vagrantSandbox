@@ -11,24 +11,24 @@
     - "-key"
     - ""
 
-- name: Copy worker specific certificate
-  copy:
-    src: "{{ inventory_hostname }}{{ item }}.pem"
-    dest: /root/{{ inventory_hostname}}{{ item }}.pem
-  become: Yes
-  with_items:
-    - "-key"
-    - ""
-
-- name: Copy kubeconfig
-  copy:
-    src: "{{ inventory_hostname }}.kubeconfig"
-    dest: /root/{{ inventory_hostname}}.kubeconfig
-  become: Yes
-
-- name: Copy kubeproxy
-  copy:
-    src: kube-proxy.kubeconfig
-    dest: /root/kube-proxy.kubeconfig
-  become: Yes
+#- name: Copy worker specific certificate
+#  copy:
+#    src: "{{ inventory_hostname }}{{ item }}.pem"
+#    dest: /root/{{ inventory_hostname}}{{ item }}.pem
+#  become: Yes
+#  with_items:
+#    - "-key"
+#    - ""
+#
+#- name: Copy kubeconfig
+#  copy:
+#    src: "{{ inventory_hostname }}.kubeconfig"
+#    dest: /root/{{ inventory_hostname}}.kubeconfig
+#  become: Yes
+#
+#- name: Copy kubeproxy
+#  copy:
+#    src: kube-proxy.kubeconfig
+#    dest: /root/kube-proxy.kubeconfig
+#  become: Yes
 

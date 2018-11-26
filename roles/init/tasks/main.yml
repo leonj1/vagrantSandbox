@@ -1,10 +1,10 @@
 ---
 
-- name: apt-get update
-  become: Yes
-  apt:
-    upgrade: yes
-    force_apt_get: yes
+#- name: apt-get update
+#  become: Yes
+#  apt:
+#    upgrade: yes
+#    force_apt_get: yes
 
 - name: Install packages
   become: Yes
