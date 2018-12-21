@@ -1,3 +1,12 @@
 .vagrant
 *.csr
+scripts/*.json
+scripts/*.pem
+scripts/*.json
+scripts/.lines.txt
+scripts/foo.sh
+scripts/*.yaml
+scripts/lines.txt
+scripts/*.kubeconfig
+scripts/*.BAK
 
