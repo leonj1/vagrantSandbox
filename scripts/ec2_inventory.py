@@ -12,9 +12,9 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 class HostCertificate(object):
-    def __init__(self, hostname, ip_address):
+    def __init__(self, hostname, private_ip):
         self.hostname = hostname
-        self.ip_address = ip_address
+        self.private_ip = private_ip
         self.algo = "rsa"
         self.size = 2048
         self.country = "US"
@@ -62,7 +62,7 @@ class HostCertificate(object):
                     -hostname=%s,%s \
                     -profile=kubernetes \
                     %s-csr.json | cfssljson -bare %s 
-                  }''' % (self.ip_address, self.hostname, self.hostname, self.hostname)
+                  }''' % (self.private_ip, self.hostname, self.hostname, self.hostname)
         return cmd
 
     def generate_certificate_request(self, cmd):
@@ -176,14 +176,16 @@ def get_hosts_by_tag_name(value):
 def generate_cert_hostname_string(hosts):
   # 10.32.0.1 is an ip that some PODs may use to contact the api server
   # then private ip address of controllers
-  # then hostname of controllers
-  # then private ip address of load balancer
+  # then public hostname of controllers
+  # then private ip address of load balancer and public hostname of load balancer
   # the kube specific vars
   #CERT_HOSTNAME=10.32.0.1,10.1.0.64,ip-10-1-0-64.ec2.internal,10.1.0.77,ip-10-1-0-77.ec2.internal,10.1.0.118,ip-10-1-0-118.ec2.internal,127.0.0.1,localhost,kubernetes.default
-  cert_arr = ["10.32.0.1", "127.0.0.1", "localhost", "kubernetes.default"]
+  cert_arr = ["10.32.0.1"]
+  trailing_cert_arr = ["127.0.0.1", "localhost", "kubernetes.default"]
   for i in hosts:
     cert_arr.extend([i.private_ip])
-    cert_arr.extend([i.private_dns])
+    cert_arr.extend([i.public_dns])
+  cert_arr.extend(trailing_cert_arr)
   return ",".join(cert_arr)
 
 try:

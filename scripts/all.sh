@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 ./1_gen_certificate_authority.sh
 ./2_gen_admin_client_certificate.sh
 ./3_gen_client_certs.sh

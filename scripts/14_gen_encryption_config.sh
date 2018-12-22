@@ -19,4 +19,5 @@ EOF
 
 cp encryption-config.yaml /home/jose/workarea/deployer/provisioning/roles/kube-control-plane/files/encryption-config.yaml
 cp encryption-config.yaml /home/jose/workarea/deployer/provisioning/roles/kube-controller-certs/files/encryption-config.yaml
+cp encryption-config.yaml /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 

@@ -8,3 +8,6 @@ cp kubernetes-key.pem /home/jose/workarea/deployer/provisioning/roles/kube-contr
 cp kubernetes.pem /home/jose/workarea/deployer/provisioning/roles/etcd/files/
 cp kubernetes-key.pem /home/jose/workarea/deployer/provisioning/roles/etcd/files/
 
+cp kubernetes.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files/
+cp kubernetes-key.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files/
+

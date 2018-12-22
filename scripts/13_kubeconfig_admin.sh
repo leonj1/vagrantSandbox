@@ -21,4 +21,5 @@
   kubectl config use-context default --kubeconfig=admin.kubeconfig
 }
 cp admin.kubeconfig /home/jose/workarea/deployer/provisioning/roles/kube-controller-certs/files/admin.kubeconfig
+cp admin.kubeconfig /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 

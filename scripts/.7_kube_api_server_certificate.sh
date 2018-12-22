@@ -2,9 +2,9 @@
 
 # 10.32.0.1 is an ip that some PODs may use to contact the api server
 # then private ip address of controllers
-# then hostname of controllers
-# then private ip address of load balancer
-# the kube specific vars
+# then public hostname of controllers
+# then private ip address of load balancer and public hostname of load balancer
+# then kube specific vars
 CERT_HOSTNAME=$1
 
 {
