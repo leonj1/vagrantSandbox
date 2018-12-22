@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rm *.csr *.json *.pem *.kubeconfig foo.sh *.yaml foo.sh .lines.txt
+rm -f *.csr *.json *.pem *.kubeconfig foo.sh *.yaml foo.sh .lines.txt
 
