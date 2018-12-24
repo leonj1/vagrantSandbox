@@ -18,4 +18,5 @@ unset KUBECONFIG
 ./12_kubeconfig_scheduler.sh
 ./13_kubeconfig_admin.sh
 ./14_gen_encryption_config.sh
+./15_setup_my_local_kubectl.sh
 
