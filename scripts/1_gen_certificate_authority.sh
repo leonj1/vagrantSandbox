@@ -41,16 +41,16 @@ cfssl gencert -initca ca-csr.json | cfssljson -bare ca
 
 }
 
-cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kube-control-plane/files/ca.pem
-cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kube-controller-certs/files/ca.pem
-cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kube-worker-certs/files/ca.pem
-cp ca.pem /home/jose/workarea/deployer/provisioning/roles/etcd/files/ca.pem
-cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kube-worker-host-certs/files/ca.pem
-cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kube-controller-host-certs/files/ca.pem
-
-cp ca-key.pem /home/jose/workarea/deployer/provisioning/roles/kube-control-plane/files/ca-key.pem
-cp ca-key.pem /home/jose/workarea/deployer/provisioning/roles/kube-worker-host-certs/files/ca-key.pem
-cp ca-key.pem /home/jose/workarea/deployer/provisioning/roles/kube-controller-host-certs/files/ca-key.pem
+#cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kube-control-plane/files/ca.pem
+#cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kube-controller-certs/files/ca.pem
+#cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kube-worker-certs/files/ca.pem
+#cp ca.pem /home/jose/workarea/deployer/provisioning/roles/etcd/files/ca.pem
+#cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kube-worker-host-certs/files/ca.pem
+#cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kube-controller-host-certs/files/ca.pem
+#
+#cp ca-key.pem /home/jose/workarea/deployer/provisioning/roles/kube-control-plane/files/ca-key.pem
+#cp ca-key.pem /home/jose/workarea/deployer/provisioning/roles/kube-worker-host-certs/files/ca-key.pem
+#cp ca-key.pem /home/jose/workarea/deployer/provisioning/roles/kube-controller-host-certs/files/ca-key.pem
 
 cp ca.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 cp ca-key.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files

@@ -21,7 +21,5 @@
   kubectl config use-context default --kubeconfig=kube-scheduler.kubeconfig
 }
 
-cp kube-scheduler.kubeconfig /home/jose/workarea/deployer/provisioning/roles/kube-control-plane/files/kube-scheduler.kubeconfig
-cp kube-scheduler.kubeconfig /home/jose/workarea/deployer/provisioning/roles/kube-controller-certs/files/kube-scheduler.kubeconfig
 cp kube-scheduler.kubeconfig /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+unset KUBECONFIG
 
 ./1_gen_certificate_authority.sh
 ./2_gen_admin_client_certificate.sh

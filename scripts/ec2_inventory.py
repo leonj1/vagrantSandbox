@@ -33,21 +33,21 @@ class HostCertificate(object):
 
     def host_certificate_request(self):
         text = '''{
-               "CN": "system:node:%s",
-               "key": {
-                 "algo": "%s",
-                 "size": %s
-               },
-               "names": [
-                 {
-                   "C": "%s",
-                   "L": "%s",
-                   "O": "%s",
-                   "OU": "%s",
-                   "ST": "%s"
-                 }
-               ]
-             }''' % (self.hostname, self.algo, self.size, self.country, self.level, self.organization, self.organization_unit, self.state)
+  "CN": "system:node:%s",
+  "key": {
+    "algo": "%s",
+    "size": %s
+  },
+  "names": [
+    {
+      "C": "%s",
+      "L": "%s",
+      "O": "%s",
+      "OU": "%s",
+      "ST": "%s"
+    }
+  ]
+}''' % (self.hostname, self.algo, self.size, self.country, self.level, self.organization, self.organization_unit, self.state)
         return text
 
     def save_text_to_file(self, contents, file_name):
@@ -210,14 +210,20 @@ for opt, arg in opts:
 
 
 if request == 'api_server_certificate':
-    hosts = get_hosts_by_tag_name("Worker")
+    hosts = get_hosts_by_tag_name("Controller")
     load_balancer = get_hosts_by_tag_name("LoadBalancer")
     hosts.extend(load_balancer)
     cert_string = generate_cert_hostname_string(hosts)
     print cert_string
 elif request == 'kubelet_kubeconfig_per_host':
     load_balancer = get_hosts_by_tag_name("LoadBalancer")
+    if len(load_balancer) != 1:
+        logging.error("Expecting one load balander. Not {}".format(len(load_balancer)))
+        sys.exit(2)
     hosts = get_hosts_by_tag_name("Worker")
+    if len(hosts) == 0:
+        logging.error("Expecting at least one worker")
+        sys.exit(2)
     for i in hosts:
         i.generate_kubelet_kubeconfig("kubernetes-the-hard-way", load_balancer[0])
 elif request == 'kubeconfig_for_loadbalancer':

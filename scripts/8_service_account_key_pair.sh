@@ -30,9 +30,6 @@ cfssl gencert \
 
 }
 
-cp service-account.pem /home/jose/workarea/deployer/provisioning/roles/kube-control-plane/files/service-account.pem
-cp service-account-key.pem /home/jose/workarea/deployer/provisioning/roles/kube-control-plane/files/service-account-key.pem
-
 cp service-account.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 cp service-account-key.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 
