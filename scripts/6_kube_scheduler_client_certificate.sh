@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd dist
+
 {
 
 cat > kube-scheduler-csr.json << EOF

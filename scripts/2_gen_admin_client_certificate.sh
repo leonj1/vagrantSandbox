@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd dist
+
 {
 
 cat > admin-csr.json << EOF

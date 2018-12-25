@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd dist
+
 {
   kubectl config set-cluster kubernetes-the-hard-way \
     --certificate-authority=ca.pem \
@@ -21,5 +23,5 @@
   kubectl config use-context default --kubeconfig=kube-scheduler.kubeconfig
 }
 
-cp kube-scheduler.kubeconfig /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
+#cp kube-scheduler.kubeconfig /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 

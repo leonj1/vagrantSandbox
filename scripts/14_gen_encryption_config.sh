@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd dist
+
 # this is to support encrypting secrets at rest
 ENCRYPTION_KEY=$(head -c 32 /dev/urandom | base64)
 
@@ -17,7 +19,5 @@ resources:
       - identity: {}
 EOF
 
-cp encryption-config.yaml /home/jose/workarea/deployer/provisioning/roles/kube-control-plane/files/encryption-config.yaml
-cp encryption-config.yaml /home/jose/workarea/deployer/provisioning/roles/kube-controller-certs/files/encryption-config.yaml
-cp encryption-config.yaml /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
+#cp encryption-config.yaml /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 

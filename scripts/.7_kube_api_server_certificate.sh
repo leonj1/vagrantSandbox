@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/bash -x
+
+cd dist
 
 # 10.32.0.1 is an ip that some PODs may use to contact the api server
 # then private ip address of controllers

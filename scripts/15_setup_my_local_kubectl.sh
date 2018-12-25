@@ -1,6 +1,8 @@
 #!/bin/bash
 
-export LOAD_BALANCER="$(python ec2_inventory.py --host_type LoadBalancer --attributes public_dns)"
+cd dist
+
+export LOAD_BALANCER="$(python ../ec2_inventory.py --host_type LoadBalancer --attributes public_dns)"
 
 kubectl config set-cluster kubernetes-the-hard-way \
   --certificate-authority=ca.pem \
@@ -16,4 +18,8 @@ kubectl config set-context kubernetes-the-hard-way \
   --user=admin
 
 kubectl config use-context kubernetes-the-hard-way
+
+if ! openssl x509 -in kubernetes.pem -text -noout | grep -e "IP\|DNS"; then
+  echo ERROR: Missing hosts from kubernetes.pem
+fi
 

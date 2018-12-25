@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd dist
+
 {
 
 cat > service-account-csr.json << EOF
@@ -30,6 +32,6 @@ cfssl gencert \
 
 }
 
-cp service-account.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
-cp service-account-key.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
+#cp service-account.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
+#cp service-account-key.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 

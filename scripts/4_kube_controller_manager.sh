@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd dist
+
 {
 
 cat > kube-controller-manager-csr.json << EOF

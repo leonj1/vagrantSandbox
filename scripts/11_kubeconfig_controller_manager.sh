@@ -1,5 +1,9 @@
 #!/bin/bash
 
+cd dist
+
+unset KUBECONFIG
+
 {
   kubectl config set-cluster kubernetes-the-hard-way \
     --certificate-authority=ca.pem \
@@ -21,5 +25,5 @@
   kubectl config use-context default --kubeconfig=kube-controller-manager.kubeconfig
 }
 
-cp kube-controller-manager.kubeconfig /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
+#cp kube-controller-manager.kubeconfig /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 
