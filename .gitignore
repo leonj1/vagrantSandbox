@@ -9,4 +9,6 @@ scripts/*.yaml
 scripts/lines.txt
 scripts/*.kubeconfig
 scripts/*.BAK
+# the only files in dist to persist should be Certificate Authority files
+dist/
 
