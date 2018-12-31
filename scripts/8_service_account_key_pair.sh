@@ -13,11 +13,11 @@ cat > service-account-csr.json << EOF
   },
   "names": [
     {
-      "C": "US",
-      "L": "Portland",
+      "C": "${COUNTRY}",
+      "L": "${LEVEL}",
       "O": "Kubernetes",
-      "OU": "Kubernetes The Hard Way",
-      "ST": "Oregon"
+      "OU": "${ORG_UNIT}",
+      "ST": "${STATE}"
     }
   ]
 }
@@ -31,7 +31,4 @@ cfssl gencert \
   service-account-csr.json | cfssljson -bare service-account
 
 }
-
-#cp service-account.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
-#cp service-account-key.pem /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 

@@ -3,7 +3,7 @@
 cd dist
 
 {
-  kubectl config set-cluster kubernetes-the-hard-way \
+  kubectl config set-cluster ${CLUSTER_NAME} \
     --certificate-authority=ca.pem \
     --embed-certs=true \
     --server=https://127.0.0.1:6443 \
@@ -16,12 +16,10 @@ cd dist
     --kubeconfig=admin.kubeconfig
 
   kubectl config set-context default \
-    --cluster=kubernetes-the-hard-way \
+    --cluster=${CLUSTER_NAME} \
     --user=admin \
     --kubeconfig=admin.kubeconfig
 
   kubectl config use-context default --kubeconfig=admin.kubeconfig
 }
-
-#cp admin.kubeconfig /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
 

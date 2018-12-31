@@ -3,6 +3,13 @@
 set -e
 unset KUBECONFIG
 
+export COUNTRY=US
+export ORGANIZATION=system:masters
+export ORG_UNIT=Kubernetes The Hard Way
+export LEVEL=New York
+export STATE=New York
+export CLUSTER_NAME=${CLUSTER_NAME:=kubernetes-the-hard-way}
+
 ./1_gen_certificate_authority.sh
 ./2_gen_admin_client_certificate.sh
 ./3_gen_client_certs.sh

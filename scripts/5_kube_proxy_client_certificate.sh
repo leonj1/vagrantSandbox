@@ -13,11 +13,11 @@ cat > kube-proxy-csr.json << EOF
   },
   "names": [
     {
-      "C": "US",
-      "L": "Portland",
+      "C": "${COUNTRY}",
+      "L": "${LEVEL}",
       "O": "system:node-proxier",
-      "OU": "Kubernetes The Hard Way",
-      "ST": "Oregon"
+      "OU": "${ORG_UNIT}",
+      "ST": "${STATE}"
     }
   ]
 }

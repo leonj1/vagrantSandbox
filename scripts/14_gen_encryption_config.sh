@@ -19,5 +19,3 @@ resources:
       - identity: {}
 EOF
 
-#cp encryption-config.yaml /home/jose/workarea/deployer/provisioning/roles/kubernetes_shared_files
-

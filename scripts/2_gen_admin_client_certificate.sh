@@ -13,11 +13,11 @@ cat > admin-csr.json << EOF
   },
   "names": [
     {
-      "C": "US",
-      "L": "Portland",
-      "O": "system:masters",
-      "OU": "Kubernetes The Hard Way",
-      "ST": "Oregon"
+      "C": "${COUNTRY}",
+      "L": "${LEVEL}",
+      "O": "${ORGANIZATION}",
+      "OU": "${ORG_UNIT}",
+      "ST": "${STATE}"
     }
   ]
 }
